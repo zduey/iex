@@ -1,1 +1,1 @@
-web: bokeh serve --Port $PORT iex.py
+web: bokeh serve --port $PORT iex.py
