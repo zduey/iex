@@ -8,8 +8,8 @@ For a short overview of the code, see [Streaming Stock Price Data with Bokeh](ht
 
 ## Local Installation
 - Create a new envrionment with virualenv or conda and python 3.6
-- pip install -r requirements.txt to install dependencies for the project
-- Run locally with bokeh serve iex.py
+-  ```pip install -r requirements.txt``` to install dependencies for the project
+- Run locally with ```bokeh serve iex.py```
 
 ## Heroku Deployment
 Additional files are provided in order to deploy on Heroku. For more information, see [Deploying an Application with Heroku](https://zduey.github.io/snippets/app-deployment-with-heroku/)
