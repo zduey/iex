@@ -7,7 +7,7 @@ from bokeh.plotting import figure, curdoc
 from bokeh.layouts import row, widgetbox
 
 
-TICKER = ""
+TICKER = "SPY"
 base = "https://api.iextrading.com/1.0/"
 data = ColumnDataSource(dict(time=[], display_time=[], price=[]))
 
