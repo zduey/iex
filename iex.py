@@ -1,7 +1,8 @@
 import io
+import os
 import requests
 import pandas as pd
-from bokeh.models import ColumnDataSource, HoverTool, ResizeTool, SaveTool
+from bokeh.models import ColumnDataSource, HoverTool, ResizeTool, SaveTool, CustomJS
 from bokeh.models.widgets import TextInput, Button
 from bokeh.plotting import figure, curdoc
 from bokeh.layouts import row, widgetbox
@@ -60,10 +61,15 @@ price_plot.yaxis.axis_label = "IEX Real-Time Price"
 price_plot.title.text = "IEX Real Time Price: " + TICKER
 
 ticker_textbox = TextInput(placeholder="Ticker")
+
 update = Button(label="Update")
 update.on_click(update_ticker)
 
-inputs = widgetbox([ticker_textbox, update], width=200)
+download = Button(label="Download", button_type="success")
+download.callback = CustomJS(args=dict(source=data),
+                             code=open(os.path.join(os.path.dirname(__file__), "export.js")).read())
+
+inputs = widgetbox([ticker_textbox, update, download], width=200)
 
 curdoc().add_root(row(inputs, price_plot, width=1600))
 curdoc().title = "Real-Time Price Plot from IEX"
