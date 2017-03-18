@@ -15,4 +15,4 @@ For a short overview of the code, see [Streaming Stock Price Data with Bokeh](ht
 Additional files are provided in order to deploy on Heroku. For more information, see [Deploying an Application with Heroku](https://zduey.github.io/snippets/app-deployment-with-heroku/)
 
 ## Live Version
-You can find a live version at http://iex-trading.herokuapp.com
+You can find a live version at http://iex-streaming.herokuapp.com
