@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/zduey/iex.svg?branch=master)](https://travis-ci.org/zduey/iex)
 # Stock Quote Streaming with Bokeh
 
 This repo contains code to run a small web-based application to stream stock quotes from IEX in near real-time using the Python library Bokeh. 
