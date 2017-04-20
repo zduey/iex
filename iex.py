@@ -3,9 +3,10 @@ import os
 import requests
 import pandas as pd
 from bokeh.models import ColumnDataSource, HoverTool, ResizeTool, SaveTool, CustomJS
-from bokeh.models.widgets import TextInput, Button, DataTable, TableColumn, DateFormatter
+from bokeh.models.widgets import Paragraph, Panel, Tabs, TextInput, Button, DataTable, TableColumn, DateFormatter
 from bokeh.plotting import figure, curdoc
 from bokeh.layouts import row, column, widgetbox, layout
+
 
 
 def get_last_price(symbol):
@@ -15,6 +16,10 @@ def get_last_price(symbol):
     }
     endpoint = "tops/last"
 
+    if symbol == "TEST":
+        prices_df = get_test_data()
+        return prices_df
+
     raw = requests.get(base + endpoint, params=payload)
     raw = io.BytesIO(raw.content)
     prices_df = pd.read_csv(raw, sep=",")
@@ -23,6 +28,12 @@ def get_last_price(symbol):
 
     return prices_df
 
+
+def get_test_data():
+    choices = [-.5, -.25, 0, .25, .5]
+    delta = np.random.choice(choices)
+    
+    return prices_df
 
 def initialize_data(ticker):
     prices_df = get_last_price(ticker)
